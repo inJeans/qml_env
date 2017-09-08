@@ -1,0 +1,14 @@
+# run conda env create --file environment-3.yml
+name: qml3
+dependencies:
+- python >= 3.6
+- matplotlib >= 2.0
+- scikit-learn >= 0.18
+- pandas
+- seaborn
+- tqdm
+- pip:
+  - tensorflow >= 1.2
+  - qutip >= 4.1
+  - edward
+  - pyquil
