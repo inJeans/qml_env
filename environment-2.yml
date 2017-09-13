@@ -1,15 +1,15 @@
 # run: conda env create --file environment-2.yml
 name: qml2
 dependencies:
-- python >= 2.7
+- python = 2
 - matplotlib >= 2.0
 - scikit-learn >= 0.18
 - pandas
 - seaborn
 - tqdm
-- cython
 - pip:
-  - tensorflow >= 1.2
+  - cython
+  - tensorflow
   - qutip >= 4.1
   - edward
   - pyquil

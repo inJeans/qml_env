@@ -7,9 +7,9 @@ dependencies:
 - pandas
 - seaborn
 - tqdm
-- cython
 - pip:
-  - tensorflow >= 1.2
+  - cython
+  - tensorflow
   - qutip >= 4.1
   - edward
   - pyquil

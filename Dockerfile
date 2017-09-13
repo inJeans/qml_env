@@ -12,13 +12,18 @@ RUN apt-get update && apt-get install -y \
     git \
     vim
 
+# Download packages
+RUN git clone https://github.com/inJeans/qml_env.git
+
 # Create conda environments
-RUN git clone https://github.com/inJeans/qml_env.git && \
-    cd qml_env && \
+RUN cd /qml_env && \
     conda env create --file environment-2.yml && \
-    conda env create --file environment-3.yml && \
-    cd .. && \
-    rm -rf qml_env
+    conda env create --file environment-3.yml
+
+# Install DWave stuff
+RUN cd /qml_env && \
+    /bin/bash -c "source activate qml2" && \
+    pip install dwave_rel-1.0-py2-none-any.whl
     
 # CMD cd cuda_dsmc/build && \
 #     git checkout develop-2.0 && \
