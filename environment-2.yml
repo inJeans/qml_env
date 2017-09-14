@@ -9,9 +9,6 @@ dependencies:
 - pandas
 - seaborn
 - tqdm
-- cython
 - pip:
+  - cython
   - tensorflow
-  - qutip
-  - edward
-  - pyquil
