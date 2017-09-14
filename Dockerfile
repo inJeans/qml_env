@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     vim
 
 # Download packages
-RUN git clone https://github.com/inJeans/qml_env.git
+RUN git clone https://github.com/inJeans/qml_env.git && \
+    ls
 
 # Install conda packages
 RUN conda config --add channels conda-forge && \
@@ -26,22 +27,17 @@ RUN conda config --add channels conda-forge && \
     conda install tensorflow && \
     conda install qutip
 
+# Install pip packages
 RUN pip install edward && \
     pip install pyquil
 
-# # Install DWave stuff
+# Install DWave stuff
 RUN cd /qml_env && \
-    pip install dwave_rel-1.0-py2-none-any.whl
-    
-# CMD cd cuda_dsmc/build && \
-#     git checkout develop-2.0 && \
-#     git pull && \
-#     make clean && \
-#     make clean-cmake && \
-#     cmake .. && \
-#     make && \
-#     make test
-
+    ls && \
+    pip install dwave_rel-1.0-py2-none-any.whl && \
+    pip install dwave_matlib-1.1.1-cp27-cp27mu-linux_x86_64.whl && \
+    pip install dwave_classical_boltzmann_sampler-1.0-cp27-cp27mu-linux_x86_64.whl && \
+    pip install dwave_quantum_boltzmann_sampler-1.0-cp27-cp27mu-linux_x86_64.whl
 
 # # Add the testu01 installation to the environment paths
 # ENV LD_LIBRARY_PATH /usr/local/lib:$LD_LIBRARY_PATH
