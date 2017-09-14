@@ -1,14 +1,14 @@
 # run: conda env create --file environment-2.yml
 name: qml2
 channels:
-- conda-forge
+  - conda-forge
 dependencies:
-- python=2.7
-- matplotlib
-- scikit-learn
-- pandas
-- seaborn
-- tqdm
-- pip:
-  - cython
-  - tensorflow
+  - python=2.7
+  - matplotlib
+  - scikit-learn
+  - pandas
+  - seaborn
+  - tqdm
+  - pip:
+    - cython
+    - tensorflow

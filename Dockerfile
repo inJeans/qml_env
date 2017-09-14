@@ -18,8 +18,7 @@ RUN git clone https://github.com/inJeans/qml_env.git
 # Create conda environments
 RUN cd /qml_env && \
     conda env create --file environment-2.yml && \
-    /bin/bash -c "source activate qml2 && python --version" && \
-    env
+    /bin/bash -c "source activate qml2 && python --version"
 
 # # Create conda environments
 # RUN cd /qml_env && \
