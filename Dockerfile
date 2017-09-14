@@ -15,23 +15,23 @@ RUN apt-get update && apt-get install -y \
 # Download packages
 RUN git clone https://github.com/inJeans/qml_env.git
 
-# Create conda environments
-RUN cd /qml_env && \
-    conda env create --file environment-2.yml && \
-    /bin/bash -c "source activate qml2 && python --version"
+# Install conda packages
+RUN conda config --add channels conda-forge && \
+    conda install matplotlib && \
+    conda install scikit-learn && \
+    conda install pandas && \
+    conda install seaborn && \
+    conda install tqdm && \
+    conda install cython && \
+    conda install tensorflow && \
+    conda install qutip
 
-# # Create conda environments
-# RUN cd /qml_env && \
-#     conda env create --file environment-3.yml && \
-#     /bin/bash -c "source activate qml3" && \
-#     python --version && \
-#     env
+RUN pip install edward && \
+    pip install pyquil
 
 # # Install DWave stuff
-# RUN cd /qml_env && \
-#     git pull && \
-#     /bin/bash -c "source activate qml2" && \
-#     pip install dwave_rel-1.0-py2-none-any.whl
+RUN cd /qml_env && \
+    pip install dwave_rel-1.0-py2-none-any.whl
     
 # CMD cd cuda_dsmc/build && \
 #     git checkout develop-2.0 && \
