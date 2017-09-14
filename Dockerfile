@@ -17,13 +17,25 @@ RUN git clone https://github.com/inJeans/qml_env.git
 
 # Create conda environments
 RUN cd /qml_env && \
+    conda config --add channels conda-forge && \
     conda env create --file environment-2.yml && \
-    conda env create --file environment-3.yml
-
-# Install DWave stuff
-RUN cd /qml_env && \
     /bin/bash -c "source activate qml2" && \
-    pip install dwave_rel-1.0-py2-none-any.whl
+    python --version && \
+    env
+
+# # Create conda environments
+# RUN cd /qml_env && \
+#     conda config --add channels conda-forge && \
+#     conda env create --file environment-3.yml && \
+#     /bin/bash -c "source activate qml3" && \
+#     python --version && \
+#     env
+
+# # Install DWave stuff
+# RUN cd /qml_env && \
+#     git pull && \
+#     /bin/bash -c "source activate qml2" && \
+#     pip install dwave_rel-1.0-py2-none-any.whl
     
 # CMD cd cuda_dsmc/build && \
 #     git checkout develop-2.0 && \
