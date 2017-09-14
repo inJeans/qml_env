@@ -17,15 +17,12 @@ RUN git clone https://github.com/inJeans/qml_env.git
 
 # Create conda environments
 RUN cd /qml_env && \
-    conda config --add channels conda-forge && \
     conda env create --file environment-2.yml && \
-    /bin/bash -c "source activate qml2" && \
-    python --version && \
+    /bin/bash -c "source activate qml2 && python --version" && \
     env
 
 # # Create conda environments
 # RUN cd /qml_env && \
-#     conda config --add channels conda-forge && \
 #     conda env create --file environment-3.yml && \
 #     /bin/bash -c "source activate qml3" && \
 #     python --version && \
